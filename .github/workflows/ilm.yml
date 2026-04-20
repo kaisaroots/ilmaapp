@@ -2,16 +2,22 @@ name: Ilmavaatlus
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # 7:00 Tallinn time (UTC+2)
+    - cron: '0 5 * * *'
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   run-ilm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: r-lib/actions/setup-r@v2
-      - name: Install packages
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libcurl4-openssl-dev libuv1-dev
+
+      - name: Install R packages
         run: Rscript -e "install.packages(c('httr','jsonlite','dplyr','tidyr','ggplot2','plotly','htmlwidgets'))"
+
       - name: Run script
         env:
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
