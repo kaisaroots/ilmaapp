@@ -2,7 +2,8 @@ name: Ilmavaatlus
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # 7:00 Tallinn time (UTC+2)
+    - cron: '0 5 * * *'
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   run-ilm:
