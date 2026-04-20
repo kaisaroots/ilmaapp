@@ -78,7 +78,10 @@ print(frost_msg)
 
 # ----------- HEATMAP -----------
 df <- df %>%
-  mutate(day = factor(day, levels = rev(sort(unique(day)))))
+  mutate(day = factor(day, levels = rev(sort(unique(day))))) # Paneb viimase kuupäeva alla
+
+df <- df %>%
+  complete(day, hour, fill = list(temp = NA)) # Täidab "augud" maatriksis
 
 p <- ggplot(df, aes(x = hour, y = day, fill = temp)) +
   geom_tile(color = "white") +
