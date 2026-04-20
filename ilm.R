@@ -126,7 +126,7 @@ ggsave(
 )
 
 # HTML 
-htmlwidgets::saveWidget(p_interactive, "temp_heatmap.html")
+htmlwidgets::saveWidget(p_interactive, "temp_heatmap.html", selfcontained = FALSE)
 
 cat("Valmis! Kontrolli HTML faili.\n")
 
