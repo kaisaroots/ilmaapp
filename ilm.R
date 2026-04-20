@@ -142,8 +142,8 @@ send_telegram <- function(message, token, chat_id) {
   ), encode = "form")
 }
 
-TG_TOKEN  <- "8534215517:AAEcOXKLteytyeJ9u4lBSqGcw_ESAef4IUM"   # oma token siia
-TG_CHAT   <- "8705461874"           # oma chat ID siia
+TG_TOKEN <- Sys.getenv("TG_TOKEN")
+TG_CHAT  <- Sys.getenv("TG_CHAT")
 
 tg_message <- paste0(
   "🌡 *Öökülma raport – ", Sys.Date(), "*\n",
