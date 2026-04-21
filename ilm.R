@@ -130,7 +130,11 @@ ggsave(
 )
 
 # HTML 
-htmlwidgets::saveWidget(p_interactive, "temp_heatmap.html", selfcontained = FALSE)
+htmlwidgets::saveWidget(
+  p_interactive,
+  "docs/heatmap.html",
+  selfcontained = FALSE
+)
 
 cat("Valmis! Kontrolli HTML faili.\n")
 
@@ -149,9 +153,12 @@ send_telegram <- function(message, token, chat_id) {
 TG_TOKEN <- Sys.getenv("TG_TOKEN")
 TG_CHAT  <- Sys.getenv("TG_CHAT")
 
+heatmap_url <- "https://kaisaroots.github.io/ilmaapp/heatmap.html"
+
 tg_message <- paste0(
   "🌡 *Öökülma raport – ", Sys.Date(), "*\n",
-  frost_msg
+  frost_msg, "\n",
+  "📊 Heatmap: ", heatmap_url
 )
 
 send_telegram(tg_message, TG_TOKEN, TG_CHAT)
