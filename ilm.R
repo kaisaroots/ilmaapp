@@ -70,9 +70,11 @@ min_temp <- min(last_night$temp, na.rm = TRUE)
 avg_temp <- mean(last_night$temp, na.rm = T)
 
 if (min_temp < 0) {
-  frost_msg <- paste0("Eile oli ÖÖKÜLM! Min temp: ", round(min_temp,2), " °C")
+  frost_msg <- paste0("Eile oli ÖÖKÜLM! Min temp: ", round(min_temp,2), "°C", 
+                      " (öö keskmine ", round(avg_temp,2), "°C")
 } else {
-  frost_msg <- paste0("Eile öösel öökülma ei olnud. Min temp: ", round(min_temp,2), " °C")
+  frost_msg <- paste0("Eile öösel öökülma ei olnud. Min temp: ", round(min_temp,2), "°C",
+                      " (öö keskmine ", round(avg_temp,2), "°C)")
 }
 
 print(frost_msg)
