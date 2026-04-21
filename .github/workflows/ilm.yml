@@ -2,12 +2,14 @@ name: Ilmavaatlus
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 4 * * *'
   workflow_dispatch:  # allows manual triggering
 
 jobs:
   run-ilm:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
       - uses: r-lib/actions/setup-r@v2
