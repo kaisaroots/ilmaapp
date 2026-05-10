@@ -8,6 +8,7 @@ library(plotly)
 library(htmlwidgets)
 
 
+
 # ----------- SEADISTUSED -----------
 
 lat <- 58.9978 
